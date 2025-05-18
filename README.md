@@ -4,12 +4,12 @@ Accept a list of companies(csv document) with the associated data:
 description, business_tags, sector ,category ,niche
 Receive a static taxonomy (a list of labels) relevant to the insurance industry.
 
-## Label examples:
-Risk Assessment Services
-Crisis Management Services
-Community Engagement Services
-Stakeholder Services
-Corporate Responsibility Services
+**Label examples:**
+Risk Assessment Services, 
+Crisis Management Services, 
+Community Engagement Services, 
+Stakeholder Services, 
+Corporate Responsibility Services, 
 
 Build a solution that accurately classifies these companies, and any similar ones, into one or more labels from the static taxonomy.
 

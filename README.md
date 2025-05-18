@@ -1,25 +1,25 @@
 # taxonomy-labeler
 ## Problem 
 Accept a list of companies(csv document) with the associated data:
-description, business_tags, sector ,category ,niche
+*description, business_tags, sector ,category ,niche*
 Receive a static taxonomy (a list of labels) relevant to the insurance industry.
 
 **Label examples:**
-Risk Assessment Services, 
+*Risk Assessment Services, 
 Crisis Management Services, 
 Community Engagement Services, 
 Stakeholder Services, 
-Corporate Responsibility Services, 
+Corporate Responsibility Services* 
 
 Build a solution that accurately classifies these companies, and any similar ones, into one or more labels from the static taxonomy.
 
 ## Thought process
 First of all, a very important factor is that the initial data is not labeled, so we cannot train classic models in the first phase of classification. This reduces the accuracy of the algorithm because we do not have a clear measurement of success(ground truth).
 In evaluating approaches, I compared two main strategies:
-Zero-shot classification using facebook/bart-large-mnli and Semantic similarity scoring using Sentence-BERT (SBERT) and cosine similarity
+**Zero-shot classification* using *facebook/bart-large-mnli* and **Semantic similarity** scoring using *Sentence-BERT (SBERT)* and *cosine similarity*.
 
 ## Initial Findings
-Through empirical testing on a representative dataset, I found that the SBERT + cosine similarity method was approximately 700 times faster than the zero-shot classification pipeline. The BART-based zero-shot model is significantly slower due to its autoregressive nature and the need to process each text-label pair independently, which makes it unsuitable for real-time or large-scale batch processing.
+Through empirical testing on a representative dataset, I found that the SBERT + cosine similarity method was approximately *700 times faster* than the zero-shot classification pipeline. The BART-based zero-shot model is significantly slower due to its autoregressive nature and the need to process each text-label pair independently, which makes it unsuitable for real-time or large-scale batch processing.
 As a result, I initially opted for the SBERT-based approach due to its superior inference speed and scalability.
 While SBERT provided an efficient framework, early results indicated low cosine similarity scores and suboptimal label matches, largely due to the use of short, context-free labels in the taxonomy and the limited semantic capacity of smaller SBERT variants like all-MiniLM-L6-v2
 

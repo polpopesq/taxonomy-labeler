@@ -16,7 +16,7 @@ Build a solution that accurately classifies these companies, and any similar one
 ## Thought process
 First of all, a very important factor is that the initial data is not labeled, so we cannot train classic models in the first phase of classification. This reduces the accuracy of the algorithm because we do not have a clear measurement of success(ground truth).
 In evaluating approaches, I compared two main strategies:
-**Zero-shot classification* using *facebook/bart-large-mnli* and **Semantic similarity** scoring using *Sentence-BERT (SBERT)* and *cosine similarity*.
+**Zero-shot classification** using *facebook/bart-large-mnli* and **Semantic similarity** scoring using *Sentence-BERT (SBERT)* and *cosine similarity*.
 
 ## Initial Findings
 Through empirical testing on a representative dataset, I found that the SBERT + cosine similarity method was approximately *700 times faster* than the zero-shot classification pipeline. The BART-based zero-shot model is significantly slower due to its autoregressive nature and the need to process each text-label pair independently, which makes it unsuitable for real-time or large-scale batch processing.

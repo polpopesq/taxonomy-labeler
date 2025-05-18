@@ -35,10 +35,10 @@ To demonstrate how the algorithm works I created a simple Streamlit app to visua
 ## Installation
 Make sure you have Python 3.8+ installed
 1. Clone the repository:
-   ```
+```
    git clone https://github.com/your-username/taxonomy-labeler.git
    cd taxonomy-labeler
-   ```
+```
 2. Create a virtual environment (optional but recommended):
 ```
    python -m venv .venv
